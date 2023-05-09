@@ -19,6 +19,7 @@ from tensorboardX import SummaryWriter
 
 repo_name = 'DER-ClassIL.pytorch'
 base_dir = osp.realpath(".")[:osp.realpath(".").index(repo_name) + len(repo_name)]
+print(base_dir)
 sys.path.insert(0, base_dir)
 
 from sacred import Experiment
