@@ -17,9 +17,7 @@ import random
 from easydict import EasyDict as edict
 from tensorboardX import SummaryWriter
 
-repo_name = 'DER-ClassIL.pytorch'
-print(osp.realpath("."))
-print(osp.realpath(".").index(repo_name))
+repo_name = 'DER'
 base_dir = osp.realpath(".")[:osp.realpath(".").index(repo_name) + len(repo_name)]
 sys.path.insert(0, base_dir)
 
