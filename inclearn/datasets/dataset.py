@@ -41,11 +41,11 @@ class iCIFAR10(DataHandler):
         transforms.RandomHorizontalFlip(),
         # transforms.ColorJitter(brightness=63 / 255),
         transforms.ToTensor(),
-        transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
+        transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2470, 0.2435, 0.2615)),
     ])
     test_transforms = transforms.Compose([
         transforms.ToTensor(),
-        transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
+        transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2470, 0.2435, 0.2615)),
     ])
 
     def __init__(self, data_folder, train, is_fine_label=False):
@@ -81,13 +81,13 @@ class iCIFAR100(iCIFAR10):
     train_transforms = transforms.Compose([
         transforms.RandomCrop(32, padding=4),
         transforms.RandomHorizontalFlip(),
-        transforms.ColorJitter(brightness=63 / 255),
+        #transforms.ColorJitter(brightness=63 / 255),
         transforms.ToTensor(),
-        transforms.Normalize((0.5071, 0.4867, 0.4408), (0.2675, 0.2565, 0.2761)),
+        transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2470, 0.2435, 0.2615)),
     ])
     test_transforms = transforms.Compose([
         transforms.ToTensor(),
-        transforms.Normalize((0.5071, 0.4867, 0.4408), (0.2675, 0.2565, 0.2761)),
+        transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2470, 0.2435, 0.2615)),
     ])
 
     def __init__(self, data_folder, train, is_fine_label=False):
