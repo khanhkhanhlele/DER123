@@ -106,7 +106,13 @@ def _train(cfg, _run, ex, tensorboard):
             n_test_data=task_info["n_test_data"],
             n_tasks=inc_dataset.n_tasks,
         )
-
+        total_num_p = 0
+        for n, p in model.named_parameters():
+            if 'scores' not in n:
+                args.logger.print(n, p.numel(), p.requires_grad)
+                total_num_p += p.numel()
+        args.logger.print("total num param:", total_num_p)
+        
         model.before_task(task_i, inc_dataset)
         # TODO: Move to incmodel.py
         if 'min_class' in task_info:
