@@ -106,12 +106,15 @@ def _train(cfg, _run, ex, tensorboard):
             n_test_data=task_info["n_test_data"],
             n_tasks=inc_dataset.n_tasks,
         )
-        total_num_p = 0
-        for n, p in model.named_parameters():
-            if 'scores' not in n:
-                args.logger.print(n, p.numel(), p.requires_grad)
-                total_num_p += p.numel()
-        args.logger.print("total num param:", total_num_p)
+        def count_parameters(model):
+            return sum(p.numel() for p in model.parameters() if p.requires_grad)
+
+        # Create your PyTorch module
+        
+
+        # Count the parameters
+        num_parameters = count_parameters(model)
+        print("Number of parameters: {}".format(num_parameters))
         
         model.before_task(task_i, inc_dataset)
         # TODO: Move to incmodel.py
