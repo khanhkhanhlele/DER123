@@ -83,7 +83,7 @@ pretrain:
 # Dataset Cfg
 dataset: "cifar10" #'imagenet100', 'cifar100'
 trial: 2
-increment: 20
+increment: 2
 batch_size: 128
 workers: 8
 validation: 0 # Validation split (0. <= x <= 1.)
