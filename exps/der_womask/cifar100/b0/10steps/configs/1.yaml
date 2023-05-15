@@ -29,7 +29,7 @@ load_mem: False
 
 
 #Optimization;Training related
-task_max: 10
+task_max: 5
 lr_min: 0.00005
 lr: 0.1
 weight_decay: 0.0005
@@ -83,7 +83,7 @@ pretrain:
 # Dataset Cfg
 dataset: "cifar100" #'imagenet100', 'cifar100'
 trial: 2
-increment: 10
+increment: 20
 batch_size: 128
 workers: 8
 validation: 0 # Validation split (0. <= x <= 1.)
