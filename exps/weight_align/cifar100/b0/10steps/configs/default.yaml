@@ -68,7 +68,7 @@ decouple:
 # Dataset Cfg
 dataset: "cifar100" #'imagenet100', 'cifar100'
 trial: 0
-increment: 5
+increment: 20
 batch_size: 128
 workers: 8
 validation: 0 # Validation split (0. <= x <= 1.)
@@ -81,7 +81,7 @@ max_task: # Cap the number of task
 coreset_strategy: "random" #"iCaRL"  ,random, inccore, k-nearest-mean
 mem_size_mode: "uniform_fixed_total_mem" #uniform_fixed_per_cls, uniform_fixed_total_mem, dynamic_fixed_per_cls
 memory_size: 2000 # Max number of storable examplars
-fixed_memory_per_cls: 30 # the fixed number of exemplars per cls
+fixed_memory_per_cls: 20 # the fixed number of exemplars per cls
 
 # Misc
 device: 0 #GPU index to use, for cpu use -1
