@@ -29,7 +29,7 @@ load_mem: False
 
 
 #Optimization;Training related
-task_max: 5
+task_max: 10
 lr_min: 0.00005
 lr: 0.1
 weight_decay: 0.0005
@@ -83,7 +83,7 @@ pretrain:
 # Dataset Cfg
 dataset: "cifar100" #'imagenet100', 'cifar100'
 trial: 2
-increment: 20
+increment: 10
 batch_size: 128
 workers: 8
 validation: 0 # Validation split (0. <= x <= 1.)
@@ -95,10 +95,9 @@ max_task: # Cap the number of task
 #Memory
 coreset_strategy: "iCaRL"  # iCaRL, random
 mem_size_mode: "uniform_fixed_total_mem" #uniform_fixed_per_cls, uniform_fixed_total_mem
-memory_size: 500 # Max number of storable examplars
-fixed_memory_per_cls: 5 # the fixed number of exemplars per cls
+memory_size: 2000 # Max number of storable examplars
+fixed_memory_per_cls: 20 # the fixed number of exemplars per cls
 
 # Misc
 device: 0 #GPU index to use, for cpu use -1
 seed: 1993
-
