@@ -180,6 +180,11 @@ def do_pretrain(cfg, ex, model, device, train_loader, test_loader):
     else:
         pretrain(cfg, ex, model, device, train_loader, test_loader, model_path)
 
+def print_model_parameters(model):
+    for name, parameter in model.named_parameters():
+        if parameter.requires_grad:
+            print(name, parameter.data)
+
 @ex.command
 def test(_run, _rnd, _seed):
     cfg, ex.logger, tensorboard = initialization(_run.config, _seed, "test", _run._id)
@@ -208,6 +213,9 @@ def test(_run, _rnd, _seed):
         state_dict = torch.load(f'./ckpts/step{taski}.ckpt')
         model._parallel_network.load_state_dict(state_dict)
         model.eval()
+
+        # Print the model parameters
+        print_model_parameters(model)
 
         #Build exemplars
         model.after_task(taski, inc_dataset)
